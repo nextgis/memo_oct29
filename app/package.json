@@ -1,0 +1,24 @@
+{
+    "name": "October 29",
+    "description": "October 29",
+    "version": "1.0",
+    "keywords": ["JavaScript", "Dojo", "Toolkit", "DojoX"],
+    "maintainers": [{
+        "name": "NextGIS"
+    }],
+    "contributors": [{
+        "name": "NextGIS"
+    }],
+    "licenses": [{
+        "type": "BSD",
+        "url": "http://bugs.dojotoolkit.org/browser/dojox/trunk/LICENSE#L13"
+    }],
+    "dependencies": {
+        "dojo": "~1.9.1",
+        "dijit": "~1.9.1",
+        "dojox": "~1.9.1"
+    },
+    "main": "src",
+    "homepage": "http://nextgis.ru/",
+    "dojoBuild": "package.js"
+}

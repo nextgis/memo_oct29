@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Мемориал</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="dojo/resources/dojo.css" />
+    <link rel="stylesheet" type="text/css" href="dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="dojox/image/resources/Lightbox.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" type="text/css" href="leaflet/leaflet.ie.css" />
+    <![endif]-->
+
+    <script>
+        var dojoConfig = {
+            async: true,
+            parseOnLoad: true,
+            deps: ["dojo/parser"],
+            cacheBust: false
+        }
+    </script>
+
+    <script src="/static/development/leaflet/leaflet.js"></script>
+    <script src="/static/development/dojo/dojo.js"></script>
+
+</head>
+<body class="claro">
+    <div data-dojo-type="app/widget/Display"></div>
+    <a href="http://nextgis.ru" target="_blank" class="nglogo"></a>
+    <div class="legendPanel"><div class="legend"></div></div>
+</body>
+</html>

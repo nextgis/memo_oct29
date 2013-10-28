@@ -1,0 +1,66 @@
+html, body { 
+    height:100%;
+    margin:0;
+    }
+.claro *{ 
+    outline: none;
+    }
+.nglogo {
+    position: absolute;
+    z-index: 1000;
+    right: 5px;
+    top: 5px;
+    background: url("app/img/nextgis.png");
+    width: 98px;
+    height: 30px;
+    }
+.legendPanel {
+    position: absolute;
+    z-index: 1000;
+    left: 5px;
+    bottom: 5px;
+    background: #ffffff;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+.legend {
+    width: 232px;
+    height: 179px;
+    background: url("app/img/legend.png") no-repeat;
+    }
+.Display {
+    width: 100%;
+    height: 100%;
+    }
+.Display #map {
+    width: 100%;
+    height: 100%;
+    }
+.dijitTooltipContainer {
+    padding: 0 0 1px 0 !important;
+    }
+.dijitTooltipTitle {
+    background-color: #eee;
+    margin: 1px 1px 0px 1px;
+    line-height: 1.5 !important;
+    }
+.leaflet-container {
+    line-height: 1.2 !important;
+    }
+.leaflet-popup-content {
+    margin: 0px !important;
+    }
+.featurePhoto-surface {
+    background-color: #ddd;
+    }
+.featurePhoto-inline {
+    display: inline-block;
+    margin: 0.25ex;
+    }
+.featurePhoto-align {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    }
