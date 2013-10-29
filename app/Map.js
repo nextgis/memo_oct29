@@ -31,8 +31,7 @@ define([
         constructor: function (div, options) {
 
             this.llmap = L.map(div, options);      
-            
-            L.tileLayer('http://api.tiles.mapbox.com/v3/dr.map-uynb5l78/{z}/{x}/{y}.png', {
+            L.tileLayer('http://api.tiles.mapbox.com/v3/nextgis.map-con61p5p/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(this.llmap);
 
