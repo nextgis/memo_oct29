@@ -35,7 +35,27 @@ define([
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(this.llmap);
 
-            // 1. "Расстрельные" дома
+            // 1. Церкви
+            L.geoJson(JSON.parse(church), {
+                style: function(feature) {
+                    return {fill: true, fillOpacity: 0, color: '#00bfff', opacity: 1, weight: 2, dashArray: "4, 3"}
+                },
+                onEachFeature: lang.hitch(this, function (feature, layer) {
+                    layer.on('click', lang.hitch(this, function(e) {
+                        var content = new ChurchWidget({
+                            style: "width: 300px",
+                            desc: feature.properties['name']
+                        });
+                        var p = new Popup({offset: [0, 0], title: "<strong>Церкви и монастыри</strong>"})
+                            .setLatLng(e.latlng)
+                            .openOn(this.llmap);
+                        content.placeAt(p._contentNode);
+                        p.update();
+                    }));
+                })
+            }).addTo(this.llmap);
+
+            // 2. "Расстрельные" дома
             L.geoJson(JSON.parse(house), {
                 style: function(feature) {
                     var attr = feature.properties['kill'];
@@ -60,26 +80,6 @@ define([
                         var p = new Popup({
                             offset: [0, 0],
                             title: "<strong>" + feature.properties['address'] + " (Расстреляно человек: " + feature.properties['kill'] + "</strong>" +")"})
-                            .setLatLng(e.latlng)
-                            .openOn(this.llmap);
-                        content.placeAt(p._contentNode);
-                        p.update();
-                    }));
-                })
-            }).addTo(this.llmap);
-
-            // 2. Церкви
-            L.geoJson(JSON.parse(church), {
-                style: function(feature) {
-                    return {fill: true, fillOpacity: 0, color: '#00bfff', opacity: 1, weight: 2, dashArray: "4, 3"}
-                },
-                onEachFeature: lang.hitch(this, function (feature, layer) {
-                    layer.on('click', lang.hitch(this, function(e) {
-                        var content = new ChurchWidget({
-                            style: "width: 300px",
-                            desc: feature.properties['name']
-                        });
-                        var p = new Popup({offset: [0, 0], title: "<strong>Церкви и монастыри</strong>"})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
                         content.placeAt(p._contentNode);
