@@ -43,10 +43,10 @@ define([
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
                         var content = new ChurchWidget({
-                            style: "width: 300px",
+                            style: "width: 320px",
                             desc: feature.properties['name']
                         });
-                        var p = new Popup({offset: [0, 0], title: "<strong>Церкви и монастыри</strong>"})
+                        var p = new Popup({offset: [0, 0], title: "Церкви и монастыри"})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
                         content.placeAt(p._contentNode);
@@ -76,10 +76,10 @@ define([
                         var sorted = store.query(null, {
                             sort:[{ attribute: "name", descending: false }]
                         });
-                        var content = new HouseWidget({style:"width: 300px", people: sorted});                       
+                        var content = new HouseWidget({style:"width: 320px", people: sorted});                       
                         var p = new Popup({
                             offset: [0, 0],
-                            title: "<strong>" + feature.properties['address'] + " (Расстреляно человек: " + feature.properties['kill'] + "</strong>" +")"})
+                            title: feature.properties['address'] + " (Расстреляно человек: " + feature.properties['kill'] + ")"})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
                         content.placeAt(p._contentNode);
@@ -93,7 +93,7 @@ define([
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
                         var content = new POIWidget({
-                            style: "width: 300px",
+                            style: "width: 320px",
                             doLayout: false,
                             poiid: feature.properties['id'],
                             desc: feature.properties['desc'],

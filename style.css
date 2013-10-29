@@ -42,10 +42,13 @@ html, body {
 .dijitTooltipContainer {
     padding: 0 0 1px 0 !important;
     }
-.dijitTooltipTitle {
+.dijitTooltipTitleWrapper {
     background-color: #eee;
-    margin: 1px 1px 0px 1px;
     line-height: 1.5 !important;
+    }
+.dijitTooltipTitle {
+    margin: 1px 15px 1px 5px;
+    font-weight:bold;
     }
 .leaflet-container {
     line-height: 1.2 !important;

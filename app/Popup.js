@@ -9,6 +9,10 @@ define([
 ) {
     return L.Popup.extend({
      
+        options: {
+            maxWidth: 350
+        },
+
         _initLayout: function () {
             L.Popup.prototype._initLayout.apply(this, []);
             domClass.remove(this._container);
@@ -20,10 +24,14 @@ define([
             domClass.add(this._wrapper, "dijitTooltipContainer");
             domClass.add(this._tipContainer, "dijitTooltipConnector");
 
-            this.titleDiv = domConstruct.create("div", {
+            var titleWrap = domConstruct.create("div", {
+                "class": "dijitTooltipTitleWrapper"
+            }, this._wrapper, "first");
+
+            var titleNode = domConstruct.create("div", {
                 innerHTML: this.options.title ? this.options.title : "&nbsp;",
                 "class": "dijitTooltipTitle"
-            }, this._wrapper, "first");
+            }, titleWrap, "first");
 
         },
         
