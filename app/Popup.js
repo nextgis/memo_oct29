@@ -36,8 +36,21 @@ define([
         },
         
         _updatePosition: function () {
-            L.Popup.prototype._updatePosition.apply(this, []);
-            domStyle.set(this._container, {left: -(8 + domStyle.get(this._tipContainer, "left")) + "px"});
+            if (!this._map) { return; }
+
+            var pos = this._map.latLngToLayerPoint(this._latlng),
+                animated = this._animated,
+                offset = L.point(this.options.offset);
+
+            if (animated) {
+                L.DomUtil.setPosition(this._container, pos);
+            }
+
+            this._containerBottom = -offset.y - (animated ? 0 : pos.y);
+            this._containerLeft = -(domStyle.get(this._tipContainer, "width") / 2 + domStyle.get(this._tipContainer, "left")) + offset.x + (animated ? 0 : pos.x);
+
+            this._container.style.bottom = this._containerBottom + 'px';
+            this._container.style.left = this._containerLeft + 'px';
         }
 
     });
