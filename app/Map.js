@@ -57,13 +57,13 @@ define([
                         var sorted = store.query(null, {
                             sort:[{ attribute: "name", descending: false }]
                         });
-                        var content = new HouseWidget({style:"width: 330px", people: sorted});                       
+                        var content = new HouseWidget({style:"width: 300px", people: sorted});                       
                         var p = new Popup({
                             offset: [0, 0],
                             title: "<strong>" + feature.properties['address'] + " (Расстреляно человек: " + feature.properties['kill'] + "</strong>" +")"})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
-                        content.placeAt(p._wrapper);
+                        content.placeAt(p._contentNode);
                         p.update();
                     }));
                 })
@@ -83,7 +83,7 @@ define([
                         var p = new Popup({offset: [0, 0], title: "<strong>Церкви и монастыри</strong>"})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
-                        content.placeAt(p._wrapper);
+                        content.placeAt(p._contentNode);
                         p.update();
                     }));
                 })
@@ -94,7 +94,7 @@ define([
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
                         var content = new POIWidget({
-                            style: "width: 400px",
+                            style: "width: 300px",
                             doLayout: false,
                             poiid: feature.properties['id'],
                             desc: feature.properties['desc'],
@@ -103,7 +103,7 @@ define([
                         var p = new Popup({offset: [0, 0], title: feature.properties['name']})
                             .setLatLng(e.latlng)
                             .openOn(this.llmap);
-                        content.placeAt(p._wrapper);
+                        content.placeAt(p._contentNode);
                         p.update();
                     }));
                 }),
