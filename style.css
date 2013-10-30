@@ -50,11 +50,9 @@ html, body {
     margin: 1px 15px 1px 5px;
     font-weight:bold;
     }
-.leaflet-container {
-    line-height: 1.2 !important;
-    }
 .leaflet-popup-content {
     margin: 0px !important;
+    line-height: 1 !important;
     }
 .featurePhoto-surface {
     background-color: #ddd;

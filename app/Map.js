@@ -42,15 +42,14 @@ define([
                 },
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
-                        var content = new ChurchWidget({
+                        var widget = new ChurchWidget({
                             style: "width: 320px",
                             desc: feature.properties['name']
                         });
                         var p = new Popup({offset: [0, 0], title: "Церкви и монастыри"})
                             .setLatLng(e.latlng)
-                            .openOn(this.llmap);
-                        content.placeAt(p._contentNode);
-                        p.update();
+                            .openOn(this.llmap)
+                            .setContent(widget);
                     }));
                 })
             }).addTo(this.llmap);
@@ -76,14 +75,14 @@ define([
                         var sorted = store.query(null, {
                             sort:[{ attribute: "name", descending: false }]
                         });
-                        var content = new HouseWidget({style:"width: 320px", people: sorted});                       
+                        var widget = new HouseWidget({style:"width: 320px", people: sorted});                       
                         var p = new Popup({
-                            offset: [0, 0],
-                            title: feature.properties['address'] + " (Расстреляно человек: " + feature.properties['kill'] + ")"})
+                                offset: [0, 0],
+                                title: feature.properties['address'] + " " + "(Расстреляно человек: " + feature.properties['kill'] + ")"
+                            })
                             .setLatLng(e.latlng)
-                            .openOn(this.llmap);
-                        content.placeAt(p._contentNode);
-                        p.update();
+                            .openOn(this.llmap)
+                            .setContent(widget);
                     }));
                 })
             }).addTo(this.llmap);
@@ -92,7 +91,7 @@ define([
             L.geoJson(JSON.parse(poi), {
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
-                        var content = new POIWidget({
+                        var widget = new POIWidget({
                             style: "width: 320px",
                             doLayout: false,
                             poiid: feature.properties['id'],
@@ -101,9 +100,8 @@ define([
                         });
                         var p = new Popup({offset: [0, 0], title: feature.properties['name']})
                             .setLatLng(e.latlng)
-                            .openOn(this.llmap);
-                        content.placeAt(p._contentNode);
-                        p.update();
+                            .openOn(this.llmap)
+                            .setContent(widget);
                     }));
                 }),
                 pointToLayer: function (feature, latlng) {
