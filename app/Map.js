@@ -91,7 +91,7 @@ define([
             L.geoJson(JSON.parse(poi), {
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
-                        var widget = new POIWidget({
+                        var widget = new ChurchWidget({
                             style: "width: 320px",
                             doLayout: false,
                             poiid: feature.properties['id'],

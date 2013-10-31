@@ -26,19 +26,14 @@ define([
         },
 
         constructor: function(options) {
-            //?
             declare.safeMixin(this, options);
             this._center = [55.7610, 37.6283];
             this._zoom = 16;
         },
 
         startup: function() {
-            //?
             this.inherited(arguments);
             this._mapSetup();
-
-
-
         }
     });
 });
