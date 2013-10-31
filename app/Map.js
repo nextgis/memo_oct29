@@ -92,7 +92,7 @@ define([
                 onEachFeature: lang.hitch(this, function (feature, layer) {
                     layer.on('click', lang.hitch(this, function(e) {
                         var widget = new ChurchWidget({
-                            style: "width: 320px",
+                            style: "width: 320px; height: 100px;",
                             doLayout: false,
                             poiid: feature.properties['id'],
                             desc: feature.properties['desc'],

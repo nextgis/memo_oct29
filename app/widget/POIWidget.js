@@ -24,8 +24,7 @@ define([
             // Панель описания
             var desc_panel = new ContentPane({
                 title: "Описание",
-                content: this.desc,
-                style: "height: 100px"
+                content: this.desc
             });
             this.addChild(desc_panel);
             
