@@ -9,7 +9,7 @@ html, body {
     position: absolute;
     z-index: 1000;
     right: 0;
-    bottom: 15px;
+    bottom: 17px;
     background: url("app/img/nextgis.png");
     opacity: 0.7;
     width: 98px;
