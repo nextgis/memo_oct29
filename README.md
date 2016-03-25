@@ -8,3 +8,8 @@ memo-oct29
 Только Лубянка.
 
 http://october29.ru/wp/gorod/
+
+
+License
+-------------
+This program is licensed under GNU GPL v2 or any later version
